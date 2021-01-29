@@ -56,6 +56,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.txt_stock = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview_product)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -256,6 +258,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_stock);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.cb_category);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txt_price);
@@ -275,7 +279,7 @@
             // cb_category
             // 
             this.cb_category.FormattingEnabled = true;
-            this.cb_category.Location = new System.Drawing.Point(128, 141);
+            this.cb_category.Location = new System.Drawing.Point(128, 188);
             this.cb_category.Name = "cb_category";
             this.cb_category.Size = new System.Drawing.Size(178, 21);
             this.cb_category.TabIndex = 33;
@@ -284,7 +288,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 141);
+            this.label9.Location = new System.Drawing.Point(17, 188);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 25;
@@ -324,6 +328,22 @@
             this.label2.Size = new System.Drawing.Size(203, 13);
             this.label2.TabIndex = 34;
             this.label2.Text = "Arama yapılacak kategorinin adını giriniz : ";
+            // 
+            // txt_stock
+            // 
+            this.txt_stock.Location = new System.Drawing.Point(128, 132);
+            this.txt_stock.Name = "txt_stock";
+            this.txt_stock.Size = new System.Drawing.Size(392, 20);
+            this.txt_stock.TabIndex = 35;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 132);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "Stok : ";
             // 
             // ProductForm
             // 
@@ -380,5 +400,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cb_categoryOfProduct;
         private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox txt_stock;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -42,20 +42,19 @@ namespace ProductFormApp.Forms
                 newProduct.Name = txt_name.Text;
                 newProduct.Price = Convert.ToDecimal( txt_price.Text);
                 newProduct.CategoryId = (int) cb_category.SelectedValue;
+                newProduct.Stock = Convert.ToInt32(txt_stock.Text);
                 newProduct.Description = txt_description.Text;
 
-                var IsSavedProduct = db.Products.Where(p => p.Name.ToLower() == newProduct.Name.ToLower());
-
-                bool IsSaved;
-                if (IsSavedProduct != null)
+                bool IsSavedProduct = false;
+                foreach (var product in db.Products)
                 {
-                    IsSaved = true;
+                    if (product.Name == newProduct.Name)
+                    {
+                        IsSavedProduct = true;
+                    }
                 }
-                else
-                {
-                    IsSaved = false;
-                }
-                if (IsSaved == true)
+                
+                if (IsSavedProduct != true)
                 {
                     int affectedRow = productControl.AddProduct(newProduct);
 
@@ -63,6 +62,7 @@ namespace ProductFormApp.Forms
                     {
                         MessageBox.Show("Ekleme başarılı");
                         getProductData();
+
                         getProducts();
                     }
                     else
@@ -72,7 +72,11 @@ namespace ProductFormApp.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Aynı isimde ürün var! Ekleme yapılmadı");
+                    MessageBox.Show("Aynı isimde ürün var! Stock güncellemesi yapılacak");
+                    productControl.AddStockByName(newProduct);
+                    getProductData();
+                    getCategories();
+                    getProducts();
                     clearTxt();
                 }
             }

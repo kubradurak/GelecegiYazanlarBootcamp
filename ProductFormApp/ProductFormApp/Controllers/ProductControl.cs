@@ -53,5 +53,26 @@ namespace ProductFormApp.Controllers
         {
             return db.Categories.FirstOrDefault(c => c.Id == selectedValue);
         }
+        public void AddStockByName(Product _product)
+        {
+            var product = db.Products.FirstOrDefault(c => c.Name == _product.Name);
+            int productStockValue = Convert.ToInt32(product.Stock.ToString());
+            int newStocktValue = Convert.ToInt32(_product.Stock.ToString());
+            int sumStock = productStockValue + newStocktValue;
+            product.Stock = sumStock;
+             MessageBox.Show($"Stok eklendi yapıldı. Yeni stock kaydı {product.Stock}");
+        }
+        public bool CheckProduct(Product _product)
+        {
+            bool IsSavedProduct = false;
+            foreach (var product in db.Products)
+            {
+                if (product.Name == _product.Name)
+                {
+                    IsSavedProduct = true;
+                }
+            }
+            return IsSavedProduct;
+        }
     }
 }
