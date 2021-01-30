@@ -1,0 +1,61 @@
+﻿@model Student
+
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+<form method="post" asp-action="Enroll" asp-controller="Home">
+    <div class="form-group">
+        <p>
+            <label>Adınız:</label>
+            <input class="form-control" asp-for="@Model.Name" />
+            <span asp-validation-for="@Model.Name"></span>
+        </p>
+    </div>
+    <div class="form-group">
+        <p>
+            <label>Okul numaranız:</label>
+            <input class="form-control" asp-for="@Model.SchoolNumber" />
+            <span asp-validation-for="@Model.SchoolNumber"></span>
+        </p>
+    </div>
+    <div class="form-group">
+        <p>
+            <label>E-posta adresiniz:</label>
+            <input class="form-control" asp-for="@Model.Email" />
+            <span asp-validation-for="@Model.Email"></span>
+        </p>
+    </div>
+    <div class="form-group">
+        <p>
+            <label>Telefon numaranız:</label>
+            <input class="form-control" asp-for="@Model.Phone" />
+            <span asp-validation-for="@Model.Phone"></span>
+        </p>
+    </div>
+    <div class="form-group">
+        <p>
+            <label>Bölümünüz:</label>
+            <select asp-for="@Model.Departmen">
+                <option value="ComputerEngineering">Bilgisayar Mühendisliği</option>
+                <option value="CivilEngineering">İnşaat Mühendisliği</option>
+                <option value="ElectricalElectronicEngineering">Elektrik Elektronik Mühendisliği</option>
+                <option value="IndustrialEngineering">Endüstri Mühendisliği</option>
+                <option value="MechanicalEngineering">Makina Mühendisliği</option>
+            </select>
+            <span asp-validation-for="@Model.Departmen"></span>
+        </p>
+    </div>
+    <div class="form-group">
+        <p>
+            <label>Katılacak mısınız?</label>
+            <select asp-for="@Model.StGender">
+                <option value="Male">Erkek</option>
+                <option value="Female">Kadın</option>
+            </select>
+            <span asp-validation-for="@Model.StGender"></span>
+        </p>
+    </div>
+    <input class="btn-primary" type="submit" name="name" value="Kayıt Oluştur"/>
+
+</form>
