@@ -37,11 +37,11 @@
         <p>
             <label>Bölümünüz:</label>
             <select asp-for="@Model.Departmen">
-                <option value="ComputerEngineering">Bilgisayar Mühendisliği</option>
-                <option value="CivilEngineering">İnşaat Mühendisliği</option>
-                <option value="ElectricalElectronicEngineering">Elektrik Elektronik Mühendisliği</option>
-                <option value="IndustrialEngineering">Endüstri Mühendisliği</option>
-                <option value="MechanicalEngineering">Makina Mühendisliği</option>
+                <option value="@Departmen.ComputerEngineering">Bilgisayar Mühendisliği</option>
+                <option value="@Departmen.CivilEngineering">İnşaat Mühendisliği</option>
+                <option value="@Departmen.ElectricalElectronicEngineering">Elektrik Elektronik Mühendisliği</option>
+                <option value="@Departmen.IndustrialEngineering">Endüstri Mühendisliği</option>
+                <option value="@Departmen.MechanicalEngineering">Makina Mühendisliği</option>
             </select>
             <span asp-validation-for="@Model.Departmen"></span>
         </p>
@@ -50,8 +50,8 @@
         <p>
             <label>Katılacak mısınız?</label>
             <select asp-for="@Model.StGender">
-                <option value="Male">Erkek</option>
-                <option value="Female">Kadın</option>
+                <option value="@Gender.Male">Erkek</option>
+                <option value="@Gender.Female">Kadın</option>
             </select>
             <span asp-validation-for="@Model.StGender"></span>
         </p>
