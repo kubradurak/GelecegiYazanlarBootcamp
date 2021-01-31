@@ -67,6 +67,8 @@ namespace ProductFormApp.Forms
                 else
                 {
                     MessageBox.Show("Aynı isimde kategori var! Ekleme yapılmadı");
+                    getCategoryData();
+                    getCategoies();                
                     clearTxt();
                 }
             }

@@ -35,7 +35,7 @@ namespace ProductFormApp.Services
             bool IsSavedProduct = false;
             foreach (var product in db.Products)
             {
-                if (product.Name == _product.Name)
+                if (product.Name.ToLower() == _product.Name.ToLower())
                 {
                     IsSavedProduct = true;
                 }
