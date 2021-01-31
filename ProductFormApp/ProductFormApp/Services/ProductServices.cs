@@ -22,7 +22,7 @@ namespace ProductFormApp.Services
 
         public void AddStockByName(Product _product)
         {
-            var product = db.Products.FirstOrDefault(c => c.Name == _product.Name);
+            var product = db.Products.FirstOrDefault(c => c.Name.ToLower() == _product.Name.ToLower());
             int productStockValue = Convert.ToInt32(product.Stock.ToString());
             int newStocktValue = Convert.ToInt32(_product.Stock.ToString());
             int sumStock = productStockValue + newStocktValue;
