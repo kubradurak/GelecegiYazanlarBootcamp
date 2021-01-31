@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ProductFormApp.Controllers;
 using ProductFormApp.Data;
 using ProductFormApp.Models;
+using ProductFormApp.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace ProductFormApp.Forms
 {
     public partial class CategoryForm : Form
     {
-        CategoryControl categoryControl = new CategoryControl();
+        CategoryServices categoryServices = new CategoryServices();
 
         Category newCategory = new Category();
         FormDbContext db = new FormDbContext();
@@ -46,20 +46,12 @@ namespace ProductFormApp.Forms
             {
                 newCategory.Name = txt_name.Text;
                 newCategory.Description = txt_description.Text;
-                var IsSavedCategory = db.Categories.Where(c => c.Name.ToLower() == newCategory.Name.ToLower());
-
-                bool IsSaved;
-                if (IsSavedCategory != null)
-                {
-                    IsSaved = true;
-                }
-                else
-                {
-                    IsSaved = false;
-                }
+                
+                bool IsSaved = categoryServices.CheckCategory(newCategory);
+             
                 if (IsSaved == true)
                 {
-                    int affectedRow = categoryControl.AddCategory(newCategory);
+                    int affectedRow = categoryServices.AddCategory(newCategory);
 
                     if (affectedRow > 0)
                     {
@@ -138,7 +130,7 @@ namespace ProductFormApp.Forms
 
             if (HasProduct == false)
             {
-                categoryControl.DeleteCategory(selectedCategoryId);
+                categoryServices.DeleteCategory(selectedCategoryId);
                 txt_desc_updated.Text = "";
                 getCategoies();
                 getCategoryData();
@@ -153,7 +145,7 @@ namespace ProductFormApp.Forms
 
         private void cb_categories_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var selectedCategory = categoryControl.GetCategoryById((int)cb_categories.SelectedValue);
+            var selectedCategory = categoryServices.GetCategoryById((int)cb_categories.SelectedValue);
             txt_desc_updated.Text = selectedCategory.Description;
         }
 
@@ -165,9 +157,9 @@ namespace ProductFormApp.Forms
                 Id = selectedCategoryId,
                     Name = txt_newCategoryName.Text,
                    Description = txt_desc_updated.Text };
-                categoryControl.UpdateCategory(selectedCategory);
+            categoryServices.UpdateCategory(selectedCategory);
 
-            int affectedRow = categoryControl.UpdateCategory(selectedCategory); ;
+            int affectedRow = categoryServices.UpdateCategory(selectedCategory); ;
 
             if (affectedRow > 0)
             {
@@ -187,7 +179,7 @@ namespace ProductFormApp.Forms
         private void btn_search_Click(object sender, EventArgs e)
         {
             
-            var result = categoryControl.GetCategoryByName(txt_search_name.Text);
+            var result = categoryServices.GetCategoryByName(txt_search_name.Text);
             datagridview_category.DataSource = db.Categories.Where(c => c.Id == result.Id).ToList();
 
         }

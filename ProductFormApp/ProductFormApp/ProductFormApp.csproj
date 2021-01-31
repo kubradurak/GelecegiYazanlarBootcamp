@@ -162,8 +162,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CategoryControl.cs" />
-    <Compile Include="Controllers\ProductControl.cs" />
     <Compile Include="Data\FormDbContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -190,8 +188,17 @@
     <Compile Include="Migrations\FormDbContextModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoryServices.cs" />
+    <Compile Include="Services\ICategoryServices.cs" />
+    <Compile Include="Services\IProductServices.cs" />
+    <Compile Include="Services\ProductServices.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +208,10 @@
     <EmbeddedResource Include="Forms\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\ProductFormApp.Form1.resources" />
+    <EmbeddedResource Include="obj\Debug\ProductFormApp.Forms.CategoryForm.resources" />
+    <EmbeddedResource Include="obj\Debug\ProductFormApp.Forms.ProductForm.resources" />
+    <EmbeddedResource Include="obj\Debug\ProductFormApp.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -210,6 +221,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\ProductFormApp.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ProductFormApp.csproj.CopyComplete" />
+    <None Include="obj\Debug\ProductFormApp.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ProductFormApp.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\ProductFormApp.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\ProductFormApp.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -224,7 +243,197 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\de\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\es\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\fr\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\it\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\ja\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\ko\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\Microsoft.Bcl.HashCode.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.HashCode.xml" />
+    <Content Include="bin\Debug\Microsoft.Data.SqlClient.dll" />
+    <Content Include="bin\Debug\Microsoft.Data.SqlClient.pdb" />
+    <Content Include="bin\Debug\Microsoft.Data.SqlClient.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Design.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Design.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.SqlServer.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Memory.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Memory.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Binder.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.xml" />
+    <Content Include="bin\Debug\Microsoft.Identity.Client.dll" />
+    <Content Include="bin\Debug\Microsoft.Identity.Client.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Protocols.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Protocols.xml" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="bin\Debug\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="bin\Debug\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Debug\netstandard.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\ProductFormApp.exe" />
+    <Content Include="bin\Debug\ProductFormApp.pdb" />
+    <Content Include="bin\Debug\pt-BR\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\System.AppContext.dll" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Collections.Concurrent.dll" />
+    <Content Include="bin\Debug\System.Collections.dll" />
+    <Content Include="bin\Debug\System.Collections.Immutable.dll" />
+    <Content Include="bin\Debug\System.Collections.Immutable.xml" />
+    <Content Include="bin\Debug\System.Collections.NonGeneric.dll" />
+    <Content Include="bin\Debug\System.Collections.Specialized.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.Annotations.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.EventBasedAsync.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.Primitives.dll" />
+    <Content Include="bin\Debug\System.ComponentModel.TypeConverter.dll" />
+    <Content Include="bin\Debug\System.Console.dll" />
+    <Content Include="bin\Debug\System.Data.Common.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Contracts.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Debug.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Debug\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Process.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.TextWriterTraceListener.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tools.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.TraceSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tracing.dll" />
+    <Content Include="bin\Debug\System.Drawing.Primitives.dll" />
+    <Content Include="bin\Debug\System.Dynamic.Runtime.dll" />
+    <Content Include="bin\Debug\System.Globalization.Calendars.dll" />
+    <Content Include="bin\Debug\System.Globalization.dll" />
+    <Content Include="bin\Debug\System.Globalization.Extensions.dll" />
+    <Content Include="bin\Debug\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="bin\Debug\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="bin\Debug\System.IO.Compression.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.ZipFile.dll" />
+    <Content Include="bin\Debug\System.IO.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Debug\System.IO.FileSystem.Watcher.dll" />
+    <Content Include="bin\Debug\System.IO.IsolatedStorage.dll" />
+    <Content Include="bin\Debug\System.IO.MemoryMappedFiles.dll" />
+    <Content Include="bin\Debug\System.IO.Pipes.dll" />
+    <Content Include="bin\Debug\System.IO.UnmanagedMemoryStream.dll" />
+    <Content Include="bin\Debug\System.Linq.dll" />
+    <Content Include="bin\Debug\System.Linq.Expressions.dll" />
+    <Content Include="bin\Debug\System.Linq.Parallel.dll" />
+    <Content Include="bin\Debug\System.Linq.Queryable.dll" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Net.Http.dll" />
+    <Content Include="bin\Debug\System.Net.NameResolution.dll" />
+    <Content Include="bin\Debug\System.Net.NetworkInformation.dll" />
+    <Content Include="bin\Debug\System.Net.Ping.dll" />
+    <Content Include="bin\Debug\System.Net.Primitives.dll" />
+    <Content Include="bin\Debug\System.Net.Requests.dll" />
+    <Content Include="bin\Debug\System.Net.Security.dll" />
+    <Content Include="bin\Debug\System.Net.Sockets.dll" />
+    <Content Include="bin\Debug\System.Net.WebHeaderCollection.dll" />
+    <Content Include="bin\Debug\System.Net.WebSockets.Client.dll" />
+    <Content Include="bin\Debug\System.Net.WebSockets.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.ObjectModel.dll" />
+    <Content Include="bin\Debug\System.Reflection.dll" />
+    <Content Include="bin\Debug\System.Reflection.Extensions.dll" />
+    <Content Include="bin\Debug\System.Reflection.Primitives.dll" />
+    <Content Include="bin\Debug\System.Resources.Reader.dll" />
+    <Content Include="bin\Debug\System.Resources.ResourceManager.dll" />
+    <Content Include="bin\Debug\System.Resources.Writer.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.VisualC.dll" />
+    <Content Include="bin\Debug\System.Runtime.dll" />
+    <Content Include="bin\Debug\System.Runtime.Extensions.dll" />
+    <Content Include="bin\Debug\System.Runtime.Handles.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.dll" />
+    <Content Include="bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="bin\Debug\System.Runtime.Numerics.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Formatters.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Json.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Primitives.dll" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Xml.dll" />
+    <Content Include="bin\Debug\System.Security.Claims.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Csp.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.dll" />
+    <Content Include="bin\Debug\System.Security.SecureString.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.dll" />
+    <Content Include="bin\Debug\System.Text.Encoding.Extensions.dll" />
+    <Content Include="bin\Debug\System.Text.RegularExpressions.dll" />
+    <Content Include="bin\Debug\System.Threading.dll" />
+    <Content Include="bin\Debug\System.Threading.Overlapped.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Parallel.dll" />
+    <Content Include="bin\Debug\System.Threading.Thread.dll" />
+    <Content Include="bin\Debug\System.Threading.ThreadPool.dll" />
+    <Content Include="bin\Debug\System.Threading.Timer.dll" />
+    <Content Include="bin\Debug\System.ValueTuple.dll" />
+    <Content Include="bin\Debug\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\Debug\System.Xml.XDocument.dll" />
+    <Content Include="bin\Debug\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\Debug\System.Xml.XmlSerializer.dll" />
+    <Content Include="bin\Debug\System.Xml.XPath.dll" />
+    <Content Include="bin\Debug\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\Debug\x64\SNI.dll" />
+    <Content Include="bin\Debug\x64\SNI.pdb" />
+    <Content Include="bin\Debug\x86\SNI.dll" />
+    <Content Include="bin\Debug\x86\SNI.pdb" />
+    <Content Include="bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll" />
+    <Content Include="obj\Debug\ProductFormApp.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ProductFormApp.exe" />
+    <Content Include="obj\Debug\ProductFormApp.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

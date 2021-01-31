@@ -1,6 +1,6 @@
-﻿using ProductFormApp.Controllers;
-using ProductFormApp.Data;
+﻿using ProductFormApp.Data;
 using ProductFormApp.Models;
+using ProductFormApp.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace ProductFormApp.Forms
     public partial class ProductForm : Form
     {
         FormDbContext db = new FormDbContext();
-        ProductControl productControl = new ProductControl();
+        ProductServices productServices = new ProductServices();
         
 
         public ProductForm()
@@ -26,7 +26,7 @@ namespace ProductFormApp.Forms
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            var result = productControl.GetProductByName(txt_search_name.Text);
+            var result = productServices.GetProductByName(txt_search_name.Text);
             datagridview_product.DataSource = db.Products.Where(c => c.Id == result.Id).ToList();
         }
 
@@ -45,18 +45,13 @@ namespace ProductFormApp.Forms
                 newProduct.Stock = Convert.ToInt32(txt_stock.Text);
                 newProduct.Description = txt_description.Text;
 
-                bool IsSavedProduct = false;
-                foreach (var product in db.Products)
-                {
-                    if (product.Name == newProduct.Name)
-                    {
-                        IsSavedProduct = true;
-                    }
-                }
                 
-                if (IsSavedProduct != true)
+                bool IsSaved = productServices.CheckProduct(newProduct);
+
+
+                if (IsSaved == true)
                 {
-                    int affectedRow = productControl.AddProduct(newProduct);
+                    int affectedRow = productServices.AddProduct(newProduct);
 
                     if (affectedRow > 0)
                     {
@@ -73,7 +68,7 @@ namespace ProductFormApp.Forms
                 else
                 {
                     MessageBox.Show("Aynı isimde ürün var! Stock güncellemesi yapılacak");
-                    productControl.AddStockByName(newProduct);
+                    productServices.AddStockByName(newProduct);
                     getProductData();
                     getCategories();
                     getProducts();
@@ -124,7 +119,7 @@ namespace ProductFormApp.Forms
 
         private void cb_category_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var selectedCategory = productControl.GetCategoryById((int)cb_category.SelectedValue);
+            var selectedCategory = productServices.GetCategoryById((int)cb_category.SelectedValue);
                 
         }
 
@@ -140,7 +135,7 @@ namespace ProductFormApp.Forms
         {
             var selectedProductId = (int)cb_products.SelectedValue;
 
-            productControl.DeleteProduct(selectedProductId);
+            productServices.DeleteProduct(selectedProductId);
             txt_desc_updated.Text = "";
             getProductData();
             getCategories();
@@ -161,7 +156,7 @@ namespace ProductFormApp.Forms
 
             };
            
-            int affectedRow = productControl.UpdateProduct(selectedProduct); 
+            int affectedRow = productServices.UpdateProduct(selectedProduct); 
 
             if (affectedRow > 0)
             {
