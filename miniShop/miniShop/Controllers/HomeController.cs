@@ -23,13 +23,18 @@ namespace miniShop.Controllers
         }
 
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(int page = 1, int catid = 0)
         {
             var pageSize = 4;
-            var products = productService.GetProducts();
+            var products = catid == 0 ? productService.GetProducts() : productService.GetProductsByCategoryId(catid);
+            
             var pagingProducts = products.OrderBy(p => p.Id)
                                           .Skip((page-1)*pageSize) // atlanacak sayı
                                           .Take(pageSize); // atlandıktan sonra tutacak satır sayısı
+
+
+            ViewBag.CatId = catid;
+            
             /*
              * 1. sayfa: 0 atla 4 göster
              * 2. sayfa: 4 atla 4 göster
@@ -43,7 +48,7 @@ namespace miniShop.Controllers
 
             return View(pagingProducts);
         }
-
+         
         public IActionResult Privacy()
         {
             return View();

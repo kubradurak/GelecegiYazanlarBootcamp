@@ -2,7 +2,7 @@
 
 <div class="list-group">
 
-    <a href="#" class="list-group-item list-group-item-action">Ansayfa</a>
+    <a asp-action="Index" asp-controller="Home" class="list-group-item list-group-item-action">Ansayfa</a>
     @foreach (var category in Model)
     {
         <a asp-action="Index" asp-controller="Home" asp-route-catid="@category.Id" class="list-group-item list-group-item-action">@category.Name</a>

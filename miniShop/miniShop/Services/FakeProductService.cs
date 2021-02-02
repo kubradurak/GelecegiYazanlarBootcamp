@@ -8,6 +8,11 @@ namespace miniShop.Services
 {
     public class FakeProductService : IProductService
     {
+        public void AddProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetProducts()
         {
             return new List<Product>
@@ -26,6 +31,11 @@ namespace miniShop.Services
                 new Product{Id=12, Name="EşorfmanK", Description="kadın gri eşorfman", ImageUrl=" https://cdn.dsmcdn.com/mnresize/415/622/ty26/product/media/images/20201121/17/30054662/59471291/1/1_org.jpg", Price= 80, Discount= 0.25, Rating=4.3} ,
 
             };
+        }
+
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            throw new NotImplementedException();
         }
     }
 
