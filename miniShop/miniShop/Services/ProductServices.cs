@@ -25,6 +25,14 @@ namespace miniShop.Services
 
         }
 
+        public Product GetProductById(int id)
+        {
+            var product = dbContext.Products.Find(id);
+            return product;
+
+        }
+
+
         public List<Product> GetProducts()
         {
             var products = dbContext.Products.AsNoTracking().ToList();
@@ -36,6 +44,12 @@ namespace miniShop.Services
         {
             return dbContext.Products.AsNoTracking()
                 .Where(p => p.CategoryId == categoryId).ToList();
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            dbContext.Entry(product).State = EntityState.Modified;
+            dbContext.SaveChanges();
         }
     }
 }

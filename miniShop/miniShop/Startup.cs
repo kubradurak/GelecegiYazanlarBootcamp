@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,10 +27,17 @@ namespace miniShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductServices >(); // senden IProductService istenirse sen FakeProductService ver
             services.AddControllersWithViews();
             services.AddDbContext<miniShopDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("db")));
+            services.AddSession();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)// kimlik belirtme
+                .AddCookie(option => { option.LoginPath = "/Account/Login";
+                                });
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,8 +57,11 @@ namespace miniShop
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
+            
+            app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

@@ -13,6 +13,16 @@ namespace miniShop.Services
             throw new NotImplementedException();
         }
 
+        public Product GetProductById()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product GetProductById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Product> GetProducts()
         {
             return new List<Product>
@@ -34,6 +44,11 @@ namespace miniShop.Services
         }
 
         public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProduct(Product product)
         {
             throw new NotImplementedException();
         }

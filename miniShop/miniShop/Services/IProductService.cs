@@ -8,5 +8,7 @@ namespace miniShop.Services
         List<Product> GetProducts();
         List<Product> GetProductsByCategoryId(int categoryId);
         void AddProduct(Product product);
+        void UpdateProduct(Product product);
+        Product GetProductById(int id);
     }
 }
